@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserTokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::middleware('auth:santum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('products', ProductController::class);
+Route::apiResource('products', ProductController::class)->middleware('auth:sanctum');
+
+Route::post("sanctum/token", UserTokenController::class);

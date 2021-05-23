@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\User;
+use Laravel\Sanctum\Sanctum;
 
 class ProductControllerTest extends TestCase
 {
@@ -13,6 +15,10 @@ class ProductControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        Sanctum::actingAs(
+            User::factory()->create()
+        );
     }
 
     public function test_index()
