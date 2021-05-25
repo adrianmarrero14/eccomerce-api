@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserTokenController;
 
 /*
@@ -27,3 +28,7 @@ Route::apiResource('products', ProductController::class)->middleware('auth:sanct
 Route::apiResource('categories', CategoryController::class)->middleware("auth:sanctum");
 
 Route::post("sanctum/token", UserTokenController::class);
+
+Route::post("/newsletter", [NewsletterController::class, 'send']);
+
+Auth::routes(["verify" => true]);
