@@ -24,14 +24,12 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $product = Product::create($request->all());
-
         return $product;
     }
 
     public function show(Request $product)
     {
         $product = new ProductResource($product);
-
         return $product;
     }
 
@@ -43,7 +41,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-
         return response()->json();
     }
 }

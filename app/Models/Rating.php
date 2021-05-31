@@ -15,13 +15,11 @@ class Rating extends Pivot
 
     public function rateable()
     {
-
         return $this->morphTo();
     }
 
     public function qualifier()
     {
-
         return $this->morphTo();
     }
 }

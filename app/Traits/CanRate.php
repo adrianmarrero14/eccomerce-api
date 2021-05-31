@@ -9,7 +9,6 @@ trait CanRate
 
     public function ratings($model = null)
     {
-
         $modelClass = $model ? $model : $this->getMorphClass();
 
         $morphToMany = $this->morphToMany(
@@ -32,7 +31,6 @@ trait CanRate
 
     public function rate(Model $model, float $score)
     {
-
         if ($this->hasRated($model))
             return false;
 
@@ -46,7 +44,6 @@ trait CanRate
 
     public function hasRated(Model $model)
     {
-
         return !is_null($this->ratings($model->getMorphClass())->find($model->getKey()));
     }
 }

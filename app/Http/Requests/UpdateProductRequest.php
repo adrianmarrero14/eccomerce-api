@@ -28,4 +28,14 @@ class UpdateProductRequest extends FormRequest
             "price" => "required"
         ];
     }
+
+    /**
+     * This is a comment test.
+     * 
+     * @return string
+     */
+    public function test_comment()
+    {
+        return 'This is a string';
+    }
 }

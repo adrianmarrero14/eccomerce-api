@@ -19,7 +19,6 @@ class SendEmailVerificationReminderCommand extends Command
 
     public function handle()
     {
-
         User::query()
             ->whereDate('created_at', '=', Carbon::now()->subDays(7)->format('Y-m-d'))
             ->whereNull('email_verified_at')
