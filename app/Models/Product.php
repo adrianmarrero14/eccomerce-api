@@ -21,4 +21,15 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected static function booted()
+    {
+        // Antes de crear el objeto añadirá una imágen por defecto
+        static::creating(function (Product $product) {
+
+            $faker = \Faker\Factory::create();
+            $product->image_url = $faker->imageUrl();
+            $product->createdBy()->associate(auth()->user());
+        });
+    }
 }
