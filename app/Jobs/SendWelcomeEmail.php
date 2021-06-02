@@ -15,6 +15,8 @@ class SendWelcomeEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $userEmail;
+
     /**
      * Create a new job instance.
      *
